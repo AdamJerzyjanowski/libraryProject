@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="book" content="">
+    <link rel="stylesheet" type="text/css" th:href="@{/style.css}"/>
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+    <title>Lista Autorów</title>
+</head>
+<body>
+
+<!-- Navigation -->
+<div  th:insert="author/menu::navigation">
+</div>
+<div class="container">
+    <div class="row">
+        <h1 class="header">Lista książek </h1>
+        <table>
+        <thead>
+            <tr>
+                <th scope="col">LP</th>
+                <th scope="col">Nazwa</th>
+                <th scope="col">Stron</th>
+                <th scope="col">Cena</th>
+                <th scope="col">Akcja</th>
+            </tr>
+            </thead>
+            <tbody class="tab">
+             <tr th:each="book : ${books}">
+                 <td th:text="${book.id}"></td>
+                <td th:text="${book.name}"></td>
+                <td th:text="${book.page}"></td>
+                <td th:text="${book.price}"></td>
+                 <td>
+                     <a th:href="@{'/author/editBook/' + ${book.id}}">
+                         <button type="button" class="btn">Edytuj</button>
+                     </a>
+                     <a th:href="@{'/author/deleteBook/' + ${book.id}}">
+                         <button type="button" class="btn">Usuń</button>
+                     </a>
+                 </td>
+            </tr>
+            </tbody>
+            <tbody>
+            <tr>
+                <td class="last">
+                </td>
+                <td class="last">
+                    <a th:href="@{'/author/addNewBook'}">
+                        <button type="button" class="btn">Dodaj książkę</button>
+                    </a>
+                </td>
+                <td class="last"></td>
+                <td class="last"></td>
+                <td class="last"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<script  th:src="@{/app.js}" type="text/javascript"></script>
+</body>
+</html>

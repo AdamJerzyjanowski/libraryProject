@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="stylesheet" type="text/css" th:href="@{/style.css}"/>
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+    <title>Lista Autorów i Książek</title>
+</head>
+<body>
+
+<!-- Navigation -->
+<div  th:insert="author/menu::navigation">
+</div>
+<div class="container">
+    <div class="row">
+
+            <h1 class="header">Lista Autorów i Książek</h1>
+
+
+            <table>
+                <thead>
+                <tr>
+                    <th scope="col">LP</th>
+                    <th scope="col">Imię i nazwisko</th>
+                    <th scope="col">Nazwa książki</th>
+
+                </tr>
+                </thead>
+                <tbody  class="tab">
+                <tr th:each="author : ${authors}">
+                    <td th:text="${author.id}"></td>
+                    <td th:text="${author.name}"></td>
+                    <td>
+                    <p th:each="book : ${author.books}"  th:remove="tag">
+                        <span th:text="${book.name}"></span>
+                        <span th:text="${book.page}"></span>,
+                    </br>
+                    </p>
+                    </td>
+                </tr>
+                </tbody>
+                <tbody>
+                <tr>
+                    <td class="last"></td>
+                    <td class="last" > <a th:href="@{'/author/addNewAuthor'}">
+                        <button type="button" class="btn">dodaj autora</button>
+                    </a></td>
+                    <td class="last" ><a th:href="@{'/author/addNewBook'}">
+                        <button type="button" class="btn">dodaj książkę</button>
+                    </a></td>
+                </tr>
+                </tbody>
+            </table>
+    </div>
+</div>
+
+<script  th:src="@{/app.js}" type="text/javascript"></script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<nav class="navigation-menu" th:fragment="navigation">
+    <a class="logo" th:href="@{'/author/getAllAuthorsWithBooks'}">
+        <img th:src="@{~/logo.gif}" alt="logo">
+    </a>
+    <ul class="navbar-list">
+        <li class="nav-item">
+            <a class="nav-link" th:href="@{'/author/getAllAuthorsWithBooks'}">Lista autorów i książek
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" th:href="@{'/author/getAllBooks'}">Lista książek
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" th:href="@{'/author/getAllAuthors'}">Lista autorów
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" th:href="@{'/author/addNewAuthor'}">Dodaj autora
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" th:href="@{'/author/addNewBook'}">Dodaj książkę
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" th:href="@{'/contact/'}">Kontakt</a>
+        </li>
+
+    </ul>
+    <div class="burger">
+        <div class="line1"></div>
+        <div class="line2"></div>
+        <div class="line3"></div>
+    </div>
+
+    </div>
+</nav>

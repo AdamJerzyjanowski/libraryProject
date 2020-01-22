@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="book" content="">
+    <link rel="stylesheet" type="text/css" th:href="@{/style.css}"/>
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+    <title>Lista Autorów</title>
+</head>
+<body>
+<div  th:insert="author/menu::navigation"></div>
+
+<div class="container">
+    <div class="row">
+            <h1 class="headerform">Formularz Autor</h1>
+            <form th:object="${author}" th:action="@{/author/saveAuthor}" method="/POST">
+                <input type="hidden" th:field="*{id}"/>
+                <div th:if="${#fields.hasErrors('*')}" class="alert alert-danger">
+                    <p>W formluarzu wystąpił bład</p>
+                </div>
+                <div class="form-group" th:class="${#fields.hasErrors('name')} ? 'form-group has-error' : 'form-group'">
+                    <label class="col-sm-2 control-label">Nazwa:</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" th:field="*{name}" th:errorclass="has-error"/>
+
+                        <span class="help-block" th:if="${#fields.hasErrors('name')}">
+                       <ul>
+                           <li th:each="err : ${#fields.errors('name')}" th:text="${err}" />
+                       </ul>
+                </span>
+                    </div>
+                </div>
+                <button type="submit" class="btn">Zapisz</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap core JavaScript -->
+<script  th:src="@{/app.js}" type="text/javascript"></script>
+</body>

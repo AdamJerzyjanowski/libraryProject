@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="stylesheet" type="text/css" th:href="@{/style.css}"/>
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+    <title>Lista Autorów i książek</title>
+</head>
+<body>
+
+<!-- Navigation -->
+<div  th:insert="author/menu::navigation">
+</div>
+<div class="container">
+    <div class="row">
+        <div class="container">
+            <form id="contact"   novalidate data-th-object="${contact}" th:action="@{/contact/sendMail}" method="POST">
+                <h1>Formularz kontaktowy</h1>
+                <h4>Masz pytanie? Napisz</h4>
+                <fieldset>
+                    <p class="help-block" data-th-if="${#fields.hasErrors('name')}" data-th-errors="*{name}"></p>
+                    <input placeholder="Twoje Imię" type="text" tabindex="1" required autofocus data-th-field="*{name}">
+
+                </fieldset>
+                <fieldset>
+                    <input placeholder="Twój email" type="email" tabindex="2" required  data-th-field="*{email}">
+                    <p class="help-block" data-th-if="${#fields.hasErrors('email')}" data-th-errors="*{email}"></p>
+                </fieldset>
+                <fieldset>
+                    <input placeholder="Twoj numer kontaktowy (jeśli chcesz)" type="tel" tabindex="3" required  data-th-field="*{phone}">
+                    <p class="help-block" data-th-if="${#fields.hasErrors('phone')}" data-th-errors="*{phone}"></p>
+                </fieldset>
+                <fieldset>
+                    <textarea placeholder="Napisz swoją wiadomość tutaj..." tabindex="5" required  data-th-field="*{message}"></textarea>
+                    <p class="help-block" data-th-if="${#fields.hasErrors('message')}" data-th-errors="*{message}"></p>
+                </fieldset>
+                <fieldset>
+                    <button type="submit" class="btn" name="submit" id="contact-submit" data-submit="...Sending">Zapytaj</button>
+                </fieldset>
+
+            <div class="">
+                <h4>a jeśli nie lubisz formularzy to spróbuj w inny sposób</h4>
+                <h5><a adamjerzyjanowski@gmail.com</h5>
+                <h5>tel. 555 555 555</h5>
+                <h4>Znajdujemy sie w Krakowie</h4>
+            </div>
+            </form>
+        </div>
+
+    </div>
+</div>
+
+<script  th:src="@{/app.js}" type="text/javascript"></script>
+</body>
+</html>
