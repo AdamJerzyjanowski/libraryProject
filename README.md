@@ -14,7 +14,8 @@ CRUD book library application. It allows to create, remove and delete books and 
   * How to send emails using Java
   * How to create tables in HTML and add CSS styles
   * How to create Burger menu
-  Screen shot for work program:
+  
+  **Screenshots:**
 ![ScreenShot1](./screenShots/authorsWithBooks.png)
 ![ScreenShot1](./screenShots/bookList.png)
 ![ScreenShot1](./screenShots/addNewBook.png)
