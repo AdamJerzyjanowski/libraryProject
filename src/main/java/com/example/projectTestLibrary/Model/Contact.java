@@ -11,7 +11,7 @@ import javax.validation.constraints.Pattern;
 @NoArgsConstructor
 public class Contact {
     @NotBlank
-    @Pattern(regexp = "[\\p{L}] '-]+", message = "W nazwie mogą być tylko litery")
+    @Pattern(regexp = "(?i)(^[a-z])((?![ .,'-]$)[a-z .,'-]){0,24}$", message = "W nazwie mogą być tylko litery")
     private String name;
 
     @NotBlank

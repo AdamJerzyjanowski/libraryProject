@@ -20,6 +20,7 @@
             <form id="contact"   novalidate data-th-object="${contact}" th:action="@{/contact/sendMail}" method="POST">
                 <h1>Formularz kontaktowy</h1>
                 <h4>Masz pytanie? Napisz</h4>
+                <div alert data-th-if="${message}" data-th-text="${message}" data-th-class="${mailSendAlert}"></div>
                 <fieldset>
                     <p class="help-block" data-th-if="${#fields.hasErrors('name')}" data-th-errors="*{name}"></p>
                     <input placeholder="Twoje Imię" type="text" tabindex="1" required autofocus data-th-field="*{name}">
@@ -43,7 +44,7 @@
 
             <div class="">
                 <h4>a jeśli nie lubisz formularzy to spróbuj w inny sposób</h4>
-                <h5><a adamjerzyjanowski@gmail.com</h5>
+                <h5><a mail to=""adamjerzyjanowski@gmail.com></a></h5>
                 <h5>tel. 555 555 555</h5>
                 <h4>Znajdujemy sie w Krakowie</h4>
             </div>
