@@ -18,7 +18,7 @@ public class Contact {
     @Email(message = "To nie jest adres email lub błedny adres email")
     private String email;
 
-    @NotBlank
+    
     @Pattern(regexp = "(^\\+[0-9]{2}|^\\+[0-9]{2}\\(0\\)|^\\(\\+[0-9]{2}\\)\\(0\\)|^00[0-9]{2}|^0)([0-9]{9}$|[0-9\\-\\s]{10}$)",
             message = "To nie jest numer telefonu")
     private String phone;

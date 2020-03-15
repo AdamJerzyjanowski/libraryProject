@@ -1,13 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
+    <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+    <meta charset="utf-8">
     <title>Title</title>
 </head>
-<body>
-<h3 data-th-object="${contact}"></h3>
+<body data-th-object="${contact}">
+<h3 >napisano z maila:</h3>
 <h2 data-th-text="*{email}"></h2>
-<h2 data-th-text="*{phone}"></h2>
+<h3 th:if="${contact.phone != null}" th:text="#{napisano z telefonem}"> nie podano telefonu </h3>
+<h2 data-th-if="${contact.phone != null}" data-th-text="*{phone}"></h2>
+<span>
+<p>przesyła wiadomość o tresci:</p>
 <p data-th-text="*{message}"></p>
+</span>
 </body>
 </html>
